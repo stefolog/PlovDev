@@ -5,7 +5,7 @@
 }
 
 #logo-lettering {
-	width: 130px;
+	width: 180px;
 	height: 45px;
 }
 
@@ -15,13 +15,13 @@
 }
 
 #intro {
-	background: url('../images/logo/plovdev-stroke.png') #FFF no-repeat center center;
+	background: url('../images/logo/plovdev-stroke-2014.png') #FFF no-repeat center center;
 
 	background-size: 95%;
 
 	-webkit-border-radius: 70px;
 	border-radius: 70px;
-	
+
 	padding: 10px 45px;
 	opacity: 0.88;
 	height: 200px;
@@ -156,7 +156,7 @@ h3.entrance {
 }
 
 @media only screen and (max-width: 1200px) {
- 
+
 	#logo_image {
 		margin: 10px auto;
 		width: 400px;
@@ -188,7 +188,7 @@ h3.entrance {
 		background: url('../images/background.jpg') fixed no-repeat;
 		height: 100%;
 	}
-	
+
 	.sponsor-logo-very-small {
 		width: 35%;
 		height: 35%;
@@ -199,7 +199,7 @@ h3.entrance {
 	#header{
 		background: #20294A; /* Old browsers */
 	}
-	
+
 	.sponsor-logo-very-small {
 		width: 35%;
 		height: 35%;
@@ -224,14 +224,14 @@ h3.entrance {
 	}
 
 	#intro {
-		background: url('../images/logo/plovdev-stroke.png') no-repeat center center;
+		background: url('../images/logo/plovdev-stroke-2014.png') no-repeat center center;
 		background-size: 95%;
-		
+
 		padding: 0px 45px;
 		opacity: 0.88;
 		height: 200px;
 	}
-	
+
 	.sponsor-logo-very-small {
 		width: 50%;
 		height: 50%;
@@ -244,7 +244,7 @@ h3.entrance {
 		width: 100px;
 		height: 30px;
 	}
-	
+
 	.lector-resume {
 		display: none;
 	}
@@ -266,12 +266,12 @@ h3.entrance {
 	#intro {
 		background: url('../images/logo/plovdev-stroke.png') no-repeat center center;
 		background-size: 95%;
-		
+
 		padding: 0px 45px;
 		opacity: 0.88;
 		height: 200px;
 	}
-	
+
 	.sponsor-logo-very-small {
 		width: 50%;
 		height: 50%;

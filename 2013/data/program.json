@@ -1,0 +1,72 @@
+[
+  {
+    "start": "10:00",
+    "icon": "coffee",
+    "title":"Кафе и регистрация"
+  },
+  {
+    "start": "10:20",
+    "icon": "signin",
+    "title":"Откриване"
+  },
+  {
+    "start": "10:30",
+    "title": "Как да съм успешен програмист - практичен опит и уроци отвъд самото програмиране",
+    "speaker": {"id":"vdjuvinov", "name": "Владимир Джувинов"}
+  },
+  {
+    "start": "11:10",
+    "title": "Arduino - make your life click",
+    "speaker": {"id":"marian", "name": "Мариян Маринов"}
+  },
+  {
+    "start": "11:50",
+    "title": "Stream or Loop - Java 8 Stream API",
+    "speaker": {"id":"npetkov", "name": "Николай Петков"}
+  },
+  {
+    "start": "12:30",
+    "icon": "food",
+    "title":"Обедна почивка"
+  },
+  {
+    "start": "13:30",
+    "title": "Raspberry Pi",
+    "speaker": {"id":"lanavi", "name": "Леон Анави"}
+  },
+  {
+    "start": "14:10",
+    "title": "Силата и слабостта на C++",
+    "speaker": {"id":"schekanov", "name": "Стефан Чеканов"}
+  },
+  {
+    "start": "14:50",
+    "icon": "coffee",
+    "title":"Кафе пауза"
+  },
+  {
+    "start": "15:10",
+    "title": "Improve your feedback loop using agile practices",
+    "speaker": {"id":"svartolomeev", "name": "Стефан Вартоломеев"}
+  },
+  {
+    "start": "15:50",
+    "title": "Context Slang - Handle communication and avoid lost in translation",
+    "speaker": {"id":"kdjelebov", "name": "Константин Джелебов"}
+  },
+  {
+    "start": "16:30",
+    "title": "Програмиране с нищо",
+    "speaker": {"id":"skanev", "name": "Стефан Кънев"}
+  },
+  {
+    "start": "17:20",
+    "icon": "comments-alt",
+    "title":"Дискусии по избрани теми"
+  },
+  {
+    "start": "18:30",
+    "icon": "signout",
+    "title":"Закриване"
+  }
+]

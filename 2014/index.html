@@ -1,37 +1,88 @@
 <!DOCTYPE html>
-<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en" style="">
+<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>PlovDev</title>
+		<title>PlovDev 2014</title>
 
 		<!-- TAB ICON -->
 		<link href="http://www.proxiad.com/wp-content/themes/Proxiad/images/favicon.ico" rel="shortcut icon">
-		
-		<!-- STYLESHEETS -->
-		<link rel="stylesheet" href="dist/css/plovdev-fonts.css" type="text/css">
-		<link rel="stylesheet" href="dist/css/plovdev.css" type="text/css">
 
+    <!-- FONTS -->
+    <link href="dist/css/fonts.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="dist/css/plovdev-fonts.css" type="text/css">
+
+		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="dist/css/bootstrap.css">
 		<link rel="stylesheet" href="dist/css/font-awesome.min.css">
-		<link rel="stylesheet" href="dist/css/styles.css">
+
 		<link rel="stylesheet" href="dist/css/slimbox2.css" type="text/css">
 
-		<!-- FONTS -->
-		<link href="dist/css/fonts.css" rel="stylesheet" type="text/css">
-		
-		<script src="dist/js/custom.modernizr.js"></script>
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <link rel="stylesheet" href="dist/css/plovdev.css" type="text/css">
+
+
+		<script type="text/template" id="speaker_template">
+				<div class="container row">
+					<div class="col-xs-4 col-sm-4 col-md-2">
+						<div class="lector-photo">
+
+				<% if (ctx.speaker.get('personalPage')) { %>
+							<a href="<%- ctx.speaker.get('personalPage') %>" target="blank">
+								<div class="image image-hover">
+									<img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+								</div>
+							</a>
+				<% } else { %>
+							<div class="image image-hover">
+								<img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+							</div>
+				<% } %>
+						</div>
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-10">
+						<h5>
+
+				<% if (ctx.speaker.get('personalPage')) { %>
+							<a class="lector-name" href="<%- ctx.speaker.get('personalPage') %>" target="blank"><%- ctx.speaker.get('name') %></a>
+				<% } else { %>
+							<a class="lector-name"><%- ctx.speaker.get('name') %></a>
+				<% } %>
+
+				<% if (ctx.speaker.get('company').name) { %>
+							<a class="lector-company" href="<%- ctx.speaker.get('company').url %>" target="blank"><%- ctx.speaker.get('company').name %></a>
+				<% } %>
+						</h5>
+						<p class="lector-resume"><%= ctx.speaker.get('resume') %></p>
+					</div>
+				</div>
+		</script>
+
+		<script type="text/template" id="program_slot_template">
+				<td><time><%- ctx.slot.get('start') %></time></td>
+
+				<% if (ctx.slot.get('icon')) { %>
+					<td><i class="icon-<%- ctx.slot.get('icon') %>"></i> <%- ctx.slot.get('title') %></td>
+				<% } else { %>
+					<td><%- ctx.slot.get('title') %></td>
+				<% } %>
+
+				<% if (ctx.slot.get('speaker')) { %>
+					<td><a class="scroll" href="<%- ctx.slot.get('speaker').id %>"><%- ctx.slot.get('speaker').name %></a></td>
+				<% } else { %>
+					<td></td>
+				<% } %>
+		</script>
 	</head>
 
 
 	<body>
-	
+
 		<!-- START PAGE -->
-		<div id="page">	
-		
+		<div id="page">
+
 			<!-- START HEADER -->
 			<header id="header" class="smooth">
 				<div class="row">
@@ -46,19 +97,19 @@
 				</div>
 			</header>
 			<!-- END HEADER -->
-			
+
 			<!-- START TOP-BAR -->
 			<div id="top-bar" style="top: 0px;">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4">
-							
+
 							<div id="logo-lettering">
 								<a class="scroll" style="text-decoration: none;" href="#header">
-									<p id="plovdev-logo">PlovDev</p>
+									<p id="plovdev-logo">PlovDev 2014</p>
 								</a>
 							</div>
-							
+
 							<div id="menu-mobile" class="hidden-md hidden-lg">
 								<i class="icon-reorder icon-2x"></i>
 							</div>
@@ -66,10 +117,10 @@
 						<div class="col-md-8">
 							<nav id="top-navigation">
 								<ul class="list-inline">
-									<li><a href="#info">инфо</a></li>
-									<li><a href="#agenda">програма</a></li>
-									<li><a href="#lecturer">лектори</a></li>
-									<li><a href="#tshirt">искаш тениска?</a></li>
+									<li id="nav-info"><a href="#info">инфо</a></li>
+									<li id="nav-agenda"><a href="#agenda">програма</a></li>
+									<li id="nav-speakers"><a href="#lecturer">лектори</a></li>
+									<!-- <li id="nav-tshirt"><a href="#tshirt">искаш тениска?</a></li> -->
 								</ul>
 							</nav>
 						</div>
@@ -87,10 +138,12 @@
 						<p class="paragraph">PlovDev е еднодневна ИТ конференция.
 							Целта на събитието е да съберем студенти и хора от бизнеса, които да обменят опит и ентусиазъм и да помогнем на ИТ обществото в града да се развие.
 							Лекторите и темите ще са разнообразни, за да привлечем хора с различни интереси.
-							Събитието се организира от Proxiad България с помощта на Hackafe, Студентски Съвет на ПУ и медийната подкрепа на MediaCafe.</p>
+							Събитието се организира от Proxiad България с помощта на Hackafe.</p>
+
+							<!-- Събитието се организира от Proxiad България с помощта на Hackafe, Студентски Съвет на ПУ и медийната подкрепа на MediaCafe. -->
 					</div>
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-						<p class="paragraph">Събитието ще се състои на <b>12 Октомври, 2013</b></p>
+						<p class="paragraph">Събитието ще се състои на <b>18 Октомври, 2014</b></p>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<h3 class="entrance well well-sm">Вход свободен!</h3>
@@ -101,34 +154,37 @@
 							<div class="col-sm-4 contact">
 								<div class="icon">
 
-									<a href="http://www.google.com/calendar/event?action=TEMPLATE&text=PlovDev&dates=20131011/20131011&details=&location=%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%D1%81%D0%BA%D0%B8%20%D0%BF%D0%B0%D0%BD%D0%B0%D0%B8%D1%80%2C%20%D0%9F%D0%B0%D0%BB%D0%B0%D1%82%D0%B0%20%D0%9A%D0%B8%D1%80%D0%BE%D0%B2&trp=false&sprop=&sprop=name:" target="_blank" title="Добави в Google Calendar">
+									<a href="http://www.google.com/calendar/event?action=TEMPLATE&text=PlovDev&dates=20141018/20141018&details=&location=%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%D1%81%D0%BA%D0%B8%20%D0%BF%D0%B0%D0%BD%D0%B0%D0%B8%D1%80%2C%20%D0%9F%D0%B0%D0%BB%D0%B0%D1%82%D0%B0%20%D0%9A%D0%B8%D1%80%D0%BE%D0%B2&trp=false&sprop=&sprop=name:" target="_blank" title="Добави в Google Calendar">
 										<i class="icon-calendar icon-3x"></i>
 									</a>
 								</div>
-								<p>12 Октомври, 2013<br/>10:00ч</p>
+								<p>18 Октомври, 2014<br/>10:00ч</p>
 							</div>
 							<div class="col-sm-4 contact">
 								<div class="icon">
 									<a href="https://maps.google.bg/maps?q=international+technical+fair+plovdiv+bulgaria&ie=UTF8&ll=42.156425,24.754509&spn=0.003519,0.008256&fb=1&gl=bg&hq=%D0%BF%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%D1%81%D0%BA%D0%B8+%D0%BF%D0%B0%D0%BD%D0%B0%D0%B8%D1%80&cid=0,0,14136024307751886088&t=m&z=18&layer=c&cbll=42.156431,24.754634&panoid=AllvVUPelcTdnJhzdZQ6_w&cbp=12,337.33,,0,16.78" target="_blank" title="3D изглед">
 										<i class="icon-map-marker icon-3x"></i>
-									</a>	
+									</a>
 								</div>
-								<p>гр. Пловдив, Пловдивски панаир, <br />Палата Киров</p>
+								<p>гр. Пловдив,<br />Пловдивски панаир,<br />Конгресен Център,<br />Зала България</p>
 							</div>
 							<div class="col-sm-4 contact">
 								<div class="icon">
-									<a href="mailto:s.vartolomeev@proxiad.com?Subject=PlovDev" title="Пиши на Стеф"><i class="icon-envelope icon-3x"></i></a>	
+									<a href="mailto:stef@plovdev.com?Subject=PlovDev" title="Пиши на Стеф"><i class="icon-envelope icon-3x"></i></a>
 								</div>
-								<p>s.vartolomeev@proxiad.com</p>
+								<p>stef@plovdev.com</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<div class="col-xs-12 col-sm-6 col-sm-offset-3" style="display: none">
 						<p class="paragraph">Палата Киров се намира на северния край на бул. Марица, на около 200м от панаирния мост в източна посока покрай реката. Сградата е боядисана в жълто.</p>
 						<p class="paragraph"><b>Паркиране</b>: Има място за паркиране точно пред палатата, а също така има и платен паркинг по продължението на улицата. Погледнете 3D изгледа на картата за по-лесна ориентация.</p>
 					</div>
 					<div class="col-xs-12  col-sm-6 col-sm-offset-3">
-						<iframe id='plovdev-map' height="350" scrolling="no" src="https://maps.google.com/maps/ms?msid=217226032745201547655.0004dfb0a3c29fbd6a79d&amp;msa=0&amp;ll=42.156635,24.75444&amp;spn=0.005082,0.011319&amp;iwloc=0004dfb0a3c4ca9036bd8&amp;output=embed" width="100%"></iframe>
+						<iframe id='plovdev-map' height="350" scrolling="no" src="https://www.google.com/maps/embed/v1/place?q=%D0%9C%D0%95%D0%96%D0%94%D0%A3%D0%9D%D0%90%D0%A0%D0%9E%D0%94%D0%95%D0%9D%20%D0%9F%D0%90%D0%9D%D0%90%D0%98%D0%A0%2C%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F%20&key=AIzaSyD6tJd4HQKbvR9B8_R3_xGgLDWcXTo2hN0&language=bg" width="100%"></iframe>
+            <!--
+https://maps.google.com/maps/ms?msid=217226032745201547655.0004dfb0a3c29fbd6a79d&amp;msa=0&amp;ll=42.156635,24.75444&amp;spn=0.005082,0.011319&amp;iwloc=0004dfb0a3c4ca9036bd8&amp;output=embed
+          -->
 					</div>
 				</div>
 			</section>
@@ -141,7 +197,7 @@
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<h1>Програма</h1>
 					</div>
-					
+
 					<div id="agenda-table" class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<table class="table">
 							<tr>
@@ -149,83 +205,16 @@
 								<th>Тема</th>
 								<th>Лектор</th>
 							</tr>
-							<tr>
-								<td><time>10:00</time></td>
-								<td><i class="icon-coffee"></i> Кафе и регистрация</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>10:20</time></td>
-								<td><i class="icon-signin"></i> Откриване</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>10:30</time></td>
-								<td>Как да съм успешен програмист - практичен опит и уроци отвъд самото програмиране</td>
-								<td><a class="scroll" href="#vdjuvinov">Владимир Джувинов</a></td>
-							</tr>
-							<tr>
-								<td><time>11:10</time></td>
-								<td>Arduino - make your life click</td>
-								<td><a class="scroll" href="#marian">Мариян Маринов</a></td>
-							</tr>
-							<tr>
-								<td><time>11:50</time></td>
-								<td>Stream or Loop - Java 8 Stream API</td>
-								<td><a class="scroll" href="#npetkov">Николай Петков</a></td>
-							</tr>
-							<tr>
-								<td><time>12:30</time></td>
-								<td><i class="icon-food"></i> Обедна почивка</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>13:30</time></td>
-								<td>Raspberry Pi</td>
-								<td><a class="scroll" href="#lanavi">Леон Анави</a></td>
-							</tr>
-							<tr>
-								<td><time>14:10</time></td>
-								<td>Силата и слабостта на C++</td>
-								<td><a class="scroll" href="#schekanov">Стефан Чеканов</a></td>
-							</tr>
-							<tr>
-								<td><time>14:50</time></td>
-								<td><i class="icon-coffee"></i> Кафе пауза</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>15:10</time></td>
-								<td>Improve your feedback loop using agile practices</td>
-								<td><a class="scroll" href="#svartolomeev">Стефан Вартоломеев</a></td>
-							</tr>
-							<tr>
-								<td><time>15:50</time></td>
-								<td>Context Slang - Handle communication and avoid lost in translation</td>
-								<td><a class="scroll" href="#kdjelebov">Константин Джелебов</a></td>
-							</tr>
-							<tr>
-								<td><time>16:30</time></td>
-								<td>Програмиране с нищо</td>
-								<td><a class="scroll" href="#skanev">Стефан Кънев</a></td>
-							</tr>
-							<tr>
-								<td><time>17:20</time></td>
-								<td><i class="icon-comments-alt"></i> Дискусии по избрани теми</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>18:30</time></td>
-								<td><i class="icon-signout"></i> Закриване</td>
-								<td></td>
-							</tr>
+
+							<!-- Program data -->
 						</table>
 					</div>
 				</div>
 			</section>
 			<!-- END AGENDA SECTION -->
 
-			<!-- START LECTURER SECTION -->
+
+			<!-- START SPEAKERS SECTION -->
 			<section id="lecturer">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -234,209 +223,14 @@
 				</div>
 
 				<div id="lectors-info">
-
-					<div class="lector" id="vdjuvinov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://dzhuvinov.com/" target="blank">
-										<div class="image">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/19/thumb_image.jpg" alt="Владимир Джувинов">
-										</div>
-										<div class="image-hover">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/19/thumb_image.jpg" alt="Владимир Джувинов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://dzhuvinov.com/" target="blank">Владимир Джувинов</a>
-									<a class="lector-company" href="http://www.nimbusds.com/" target="blank">NimbusDS</a>
-								</h5>
-								<p class="lector-resume">В момента разработва OpenID Connect SDK, сървър и SaaS услуга в Nimbus Directory Services (собствен бизнес, <a href="http://www.nimbusds.com/" target="blank">www.nimbusds.com</a>). Участва в работните групи JOSE и OAuth на IETF, a също и в Connect A/B на OpenID Foundation. Освен това е майстор на колелото, за което свиделества постоянното му каране с крива спица. Ако искате да го намерите - просто питайте за Джуви в <a href="http://hackafe.org/" target="blank">Hackafe</a>.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="marian">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://hydra.azilian.net/blog/" target="blank">
-										<div class="image">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/17/thumb_image.jpg" alt="Мариян Маринов">
-										</div>
-										<div class="image-hover">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/17/thumb_image.jpg" alt="Мариян Маринов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://hydra.azilian.net/blog/" target="blank">Мариян Маринов</a>
-									<a class="lector-company" href="http://www.1h.com/" target="blank">1H Ltd.</a>
-								</h5>
-								<p class="lector-resume">Мариян е системен администратор по душа. Занимава се с Линукс от 16 години. Той е партньор и управител на 1H Ltd. - фирма, която пише софтуер за server management специфично за hosting доставчици. Голям фен е на Open Source софтуера и редовно говори на различни Open Source конференции на Балканите. Той също помага и за случването на OpenFest - най-голямата българска Free and Open Source конференция. В свободното си време води курсове по Системна администрация и Мрежова сигурност в Софийски университет и Telerik.</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="lector" id="npetkov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/piki.jpg" alt="Николай Петков">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/piki.jpg" alt="Николай Петков">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Николай Петков</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">Николай е Project Manager в Proxiad.  Вече 10 години ляга и става с Java.
-									Злите езици казват “He has realy good coding skills!”…  Плуваа свободно в дълбоките води на  Design patters, Spring и Java EE. Фен е на модерните езици като Groovy и Scala, а като мениджър много се радва на съществуването на Agile, Lean.. и всички леки мениджмънт методологии. Страстен привърженик е на тестването  и continuous integration-а  и полага много усилия да убеди и програмистите, че тестването е начина да се осигури по-добър код. Играе тенис на маса и поддържа добрата спортна форма с любимото колело. Обича разходки сред природата и пикник покрай рекички(за да си охлади биричката), но най-много си обича екипа!
-								</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="lector" id="lanavi">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="https://www.youtube.com/user/leonanavi" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/LeonAnavi.jpg" alt="Леон Анави">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/LeonAnavi.jpg" alt="Леон Анави">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="https://www.youtube.com/user/leonanavi" target="blank">Леон Анави</a>
-								</h5>
-								<p class="lector-resume">
-									Леон обича да се занима с open-source проекти в свободното си време, а през другото работи като софтуерен инженер на мобилни приложения. В момента интересите му са фокусирани върху Tizen, Qt, Qt for Tizen и SailfishOS.
-								</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="lector" id="schekanov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/schekanov.png" alt="Стефан Чеканов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/schekanov.png" alt="Стефан Чеканов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Стефан Чеканов</a>
-									<a class="lector-company" href="http://www.brosix.com" target="blank">Brosix</a>
-								</h5>
-								<p class="lector-resume">Стефан се занимава със софтуер от 28 години, 19 от тях професионално. През последните 13 години ръководи проекти и екипи, които разработват комплексни продукти и услуги.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="kdjelebov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/koceto.png" alt="Константин Джелебов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/koceto.png" alt="Константин Джелебов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Константин Джелебов</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">Коцето е програмист, философ, икономист, спортист, историк, политолог, психолог, общественик, джентълмен, любител на вкусната храна и женската красота. Работи в Proxiad Bulgaria като кадрови девелъпър с Java. Прави всичко да работи (ама всичко). В работата голяма радост му доставя да прави иначе скучния интерфейс да има ефекта "УАУ!" с Java FX.</p>
-							</div>
-						</div>
-					</div>
-				
-					<div class="lector" id="svartolomeev">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://www.stefolog.com/blog/" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/stef.png" alt="Стефан Вартоломеев">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/stef.png" alt="Стефан Вартоломеев">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://www.stefolog.com/blog/" target="blank">Стефан Вартоломеев</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">До преди известно време преподава във ФМИ към СУ "Св. Климент Охридски" някакви предмети свързани с Web програмиране и бази данни. От известно време програмира на Java и много се кефи. Експериментира с други уж по-екзотични езици като Ruby и Python. Много добре знае PHP, но умело се прикрива. Обича Mac-a и котката си, както и много да размишлява над процеса си на работа. Пробва различни agile методологии, като понякога дори и му се получава! Работи във Proxiad Bulgaria, където с финес убива всеки проект, до който се докопа. Незнайно защо обаче, във фирмата е на почит и дори го поощряват да си организира конференцийки като <a href="https://www.facebook.com/events/324741870990622/" target="blank">POJO Conf</a> и <a href="#">PlovDev</a>. Няколко пъти е оживявал след нощно каране на ролери из тъмните софийски улички.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="skanev">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://skanev.com/" target="blank">
-										<div class="image">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/3/thumb_image.jpg" alt="Стефан Кънев">
-										</div>
-										<div class="image-hover">
-											<img src="https://tour-conf-production.s3.amazonaws.com/uploads/speaker/photo/3/thumb_image.jpg" alt="Стефан Кънев">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://skanev.com/" target="blank">Стефан Кънев</a>
-									<a class="lector-company" href="http://artilect.se/" target="blank">Artilect</a>
-								</h5>
-								<p class="lector-resume">Стефан се занимава с програмиране откакто се помни. Сред любимите му неща са Ruby, Vim, автоматизирани тестове, папийонки, Apple продуктите и всевъзможни екзотични езици за програмиране. В заетото си време програмира на Rails, а в свободното - води един-два курса във ФМИ към СУ, пише много код, който после трие и се опитва да не се нарани с планинското си колело. Никак не обича PHP и е амбивалентен към Java.</p>
-							</div>
-						</div>
-					</div>
-
+					<!-- Speakers data -->
 				</div>
 			</section>
-			<!-- END LECTURER SECTION -->
+			<!-- END SPEAKERS SECTION -->
 
 
 			<!-- START TSHIRT SECTION -->
-			<section id="tshirt">
+			<section id="tshirt" style="display: none;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6">
 						<h1>Тениски</h1>
@@ -453,7 +247,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<h4 class="well well-sm no-tshirt-warning">Срокът за заявки за тениски изтече.<br/>Не се отчайвай! Все още имаш шанс да получиш тениска на конференцията.</h4>
 
@@ -474,33 +268,28 @@
 
 					<div id="sponsor-logos" class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<div class="row">
-							<div class="col-xs-6 col-sm-3 col-sm-offset-2">
+							<div class="col-xs-6 col-sm-4 col-sm-offset-1">
 								<a href="http://www.proxiad.com/" target="blank">
 									<img class="sponsor-logo" src="dist/images/logo/proxiad.png">
 								</a>
 							</div>
-							<div class="col-xs-6 col-sm-3 col-sm-offset-2">
+							<div class="col-xs-6 col-sm-4 col-sm-offset-2">
 								<a href="http://www.proxiad.com/" target="blank">
 									<img class="sponsor-logo" src="dist/images/logo/ptx.png">
 								</a>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-2">
+							<div class="col-xs-6 col-sm-4 col-sm-offset-4">
 								<a href="http://hackafe.org/" target="blank">
 									<img class="sponsor-logo" src="dist/images/logo/hackafe.png">
-								</a>
-							</div>
-							<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-2">
-								<a href="https://uni-plovdiv.bg/pages/index/16/" target="blank">
-									<img class="sponsor-logo-small" src="dist/images/logo/pu_ss.jpg">
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				<div class="row">
+
+				<div class="row" style="display: none;">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<h3>С медийната подкрепа</h3>
 					</div>
@@ -537,23 +326,6 @@
 			<!-- END FOOTER -->
 		</div>
 		<!-- END PAGE -->
-		
-		<!-- Bootstrap Scripts -->
-		<script src="dist/js/jquery.min.js"></script>
-		<script src="dist/js/bootstrap.min.js"></script>
-
-		<!-- Jquery Scripts -->
-		<script src="dist/js/jquery.mixitup.min.js"></script>
-		<script src="dist/js/jquery.easing.min.js"></script>
-		<script src="dist/js/jquery.slimbox2.js"></script>
-		
-		<!-- Swiper Plugin -->
-		<script src="dist/js/idangerous.swiper-1.9.3.min.js"></script>
-		
-		<!-- Specific Scripts -->
-		<script src="dist/js/scripts.min.js"></script>
-		<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-	    <script src="dist/js/respond.min.js"></script>
 
 		<div id="lbBottomContainer" style="display: none;">
 			<div id="lbBottom">
@@ -563,5 +335,31 @@
 				<div style="clear: both;"></div>
 			</div>
 		</div>
+
+
+    <!-- Bootstrap Scripts -->
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <!-- Jquery Scripts -->
+    <script src="dist/js/jquery.mixitup.min.js"></script>
+    <script src="dist/js/jquery.easing.min.js"></script>
+    <script src="dist/js/jquery.slimbox2.js"></script>
+
+    <!-- Swiper Plugin -->
+    <script src="dist/js/idangerous.swiper-1.9.3.min.js"></script>
+
+    <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+    <script src="dist/js/respond.min.js"></script>
+
+    <script src="dist/js/custom.modernizr.js"></script>
+
+    <!-- Backbone.JS -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
+
+    <!-- Specific Scripts -->
+    <script src="dist/js/scripts.js"></script>
+    <script src="dist/js-gen/main.js"></script>
 	</body>
 </html>

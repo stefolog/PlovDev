@@ -1,0 +1,15 @@
+
+1. Ангел Георгиев (М): ???
+
+2. Ивайло Лесев (M): Gaming in Developer Mode
+
+3. Тихомир Недев (L): Drone Hacking: how to program your aerial army
+
+4. Владимир Джувинов (S): Mind patterns and anti-patterns
+
+5. Минко Гечев (M/s): AngularJS in Patterns
+
+6. Ники Петков (?): Java 8 features lost in the hype
+
+7. Костадин Голев (M): Writing SOLID code: преразказ с елементи на разсъждение
+(+ женска L)

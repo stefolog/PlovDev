@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en" style="">
+<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,7 @@
 
 		<!-- TAB ICON -->
 		<link href="http://www.proxiad.com/wp-content/themes/Proxiad/images/favicon.ico" rel="shortcut icon">
+
 
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="dist/css/plovdev-fonts.css" type="text/css">
@@ -20,10 +20,60 @@
 		<link rel="stylesheet" href="dist/css/styles.css">
 		<link rel="stylesheet" href="dist/css/slimbox2.css" type="text/css">
 
-		<!-- FONTS -->
-		<link href="dist/css/fonts.css" rel="stylesheet" type="text/css">
+    <!-- FONTS -->
+    <link href="dist/css/fonts.css" rel="stylesheet" type="text/css">
 
-		<script src="dist/js/custom.modernizr.js"></script>
+		<script type="text/template" id="speaker_template">
+				<div class="container row">
+					<div class="col-xs-4 col-sm-4 col-md-2">
+						<div class="lector-photo">
+
+				<% if (ctx.speaker.get('personalPage')) { %>
+							<a href="<%- ctx.speaker.get('personalPage') %>" target="blank">
+								<div class="image image-hover">
+									<img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+								</div>
+							</a>
+				<% } else { %>
+							<div class="image image-hover">
+								<img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+							</div>
+				<% } %>
+						</div>
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-10">
+						<h5>
+
+				<% if (ctx.speaker.get('personalPage')) { %>
+							<a class="lector-name" href="<%- ctx.speaker.get('personalPage') %>" target="blank"><%- ctx.speaker.get('name') %></a>
+				<% } else { %>
+							<a class="lector-name"><%- ctx.speaker.get('name') %></a>
+				<% } %>
+
+				<% if (ctx.speaker.get('company').name) { %>
+							<a class="lector-company" href="<%- ctx.speaker.get('company').url %>" target="blank"><%- ctx.speaker.get('company').name %></a>
+				<% } %>
+						</h5>
+						<p class="lector-resume"><%= ctx.speaker.get('resume') %></p>
+					</div>
+				</div>
+		</script>
+
+		<script type="text/template" id="program_slot_template">
+				<td><time><%- ctx.slot.get('start') %></time></td>
+
+				<% if (ctx.slot.get('icon')) { %>
+					<td><i class="icon-<%- ctx.slot.get('icon') %>"></i> <%- ctx.slot.get('title') %></td>
+				<% } else { %>
+					<td><%- ctx.slot.get('title') %></td>
+				<% } %>
+
+				<% if (ctx.slot.get('speaker')) { %>
+					<td><a class="scroll" href="<%- ctx.slot.get('speaker').id %>"><%- ctx.slot.get('speaker').name %></a></td>
+				<% } else { %>
+					<td></td>
+				<% } %>
+		</script>
 	</head>
 
 
@@ -149,83 +199,16 @@
 								<th>Тема</th>
 								<th>Лектор</th>
 							</tr>
-							<tr>
-								<td><time>10:00</time></td>
-								<td><i class="icon-coffee"></i> Кафе и регистрация</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>10:20</time></td>
-								<td><i class="icon-signin"></i> Откриване</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>10:30</time></td>
-								<td>Как да съм успешен програмист - практичен опит и уроци отвъд самото програмиране</td>
-								<td><a class="scroll" href="#vdjuvinov">Владимир Джувинов</a></td>
-							</tr>
-							<tr>
-								<td><time>11:10</time></td>
-								<td>Arduino - make your life click</td>
-								<td><a class="scroll" href="#marian">Мариян Маринов</a></td>
-							</tr>
-							<tr>
-								<td><time>11:50</time></td>
-								<td>Stream or Loop - Java 8 Stream API</td>
-								<td><a class="scroll" href="#npetkov">Николай Петков</a></td>
-							</tr>
-							<tr>
-								<td><time>12:30</time></td>
-								<td><i class="icon-food"></i> Обедна почивка</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>13:30</time></td>
-								<td>Raspberry Pi</td>
-								<td><a class="scroll" href="#lanavi">Леон Анави</a></td>
-							</tr>
-							<tr>
-								<td><time>14:10</time></td>
-								<td>Силата и слабостта на C++</td>
-								<td><a class="scroll" href="#schekanov">Стефан Чеканов</a></td>
-							</tr>
-							<tr>
-								<td><time>14:50</time></td>
-								<td><i class="icon-coffee"></i> Кафе пауза</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>15:10</time></td>
-								<td>Improve your feedback loop using agile practices</td>
-								<td><a class="scroll" href="#svartolomeev">Стефан Вартоломеев</a></td>
-							</tr>
-							<tr>
-								<td><time>15:50</time></td>
-								<td>Context Slang - Handle communication and avoid lost in translation</td>
-								<td><a class="scroll" href="#kdjelebov">Константин Джелебов</a></td>
-							</tr>
-							<tr>
-								<td><time>16:30</time></td>
-								<td>Програмиране с нищо</td>
-								<td><a class="scroll" href="#skanev">Стефан Кънев</a></td>
-							</tr>
-							<tr>
-								<td><time>17:20</time></td>
-								<td><i class="icon-comments-alt"></i> Дискусии по избрани теми</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><time>18:30</time></td>
-								<td><i class="icon-signout"></i> Закриване</td>
-								<td></td>
-							</tr>
+
+							<!-- Program data -->
 						</table>
 					</div>
 				</div>
 			</section>
 			<!-- END AGENDA SECTION -->
 
-			<!-- START LECTURER SECTION -->
+
+			<!-- START SPEAKERS SECTION -->
 			<section id="lecturer">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -234,205 +217,10 @@
 				</div>
 
 				<div id="lectors-info">
-
-					<div class="lector" id="vdjuvinov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://dzhuvinov.com/" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/djuvi.jpg" alt="Владимир Джувинов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/djuvi.jpg" alt="Владимир Джувинов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://dzhuvinov.com/" target="blank">Владимир Джувинов</a>
-									<a class="lector-company" href="http://www.nimbusds.com/" target="blank">NimbusDS</a>
-								</h5>
-								<p class="lector-resume">В момента разработва OpenID Connect SDK, сървър и SaaS услуга в Nimbus Directory Services (собствен бизнес, <a href="http://www.nimbusds.com/" target="blank">www.nimbusds.com</a>). Участва в работните групи JOSE и OAuth на IETF, a също и в Connect A/B на OpenID Foundation. Освен това е майстор на колелото, за което свиделества постоянното му каране с крива спица. Ако искате да го намерите - просто питайте за Джуви в <a href="http://hackafe.org/" target="blank">Hackafe</a>.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="marian">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://hydra.azilian.net/blog/" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/marian.jpg" alt="Мариян Маринов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/marian.jpg" alt="Мариян Маринов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://hydra.azilian.net/blog/" target="blank">Мариян Маринов</a>
-									<a class="lector-company" href="http://www.1h.com/" target="blank">1H Ltd.</a>
-								</h5>
-								<p class="lector-resume">Мариян е системен администратор по душа. Занимава се с Линукс от 16 години. Той е партньор и управител на 1H Ltd. - фирма, която пише софтуер за server management специфично за hosting доставчици. Голям фен е на Open Source софтуера и редовно говори на различни Open Source конференции на Балканите. Той също помага и за случването на OpenFest - най-голямата българска Free and Open Source конференция. В свободното си време води курсове по Системна администрация и Мрежова сигурност в Софийски университет и Telerik.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="npetkov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/piki.jpg" alt="Николай Петков">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/piki.jpg" alt="Николай Петков">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Николай Петков</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">Николай е Project Manager в Proxiad.  Вече 10 години ляга и става с Java.
-									Злите езици казват “He has realy good coding skills!”…  Плуваа свободно в дълбоките води на  Design patters, Spring и Java EE. Фен е на модерните езици като Groovy и Scala, а като мениджър много се радва на съществуването на Agile, Lean.. и всички леки мениджмънт методологии. Страстен привърженик е на тестването  и continuous integration-а  и полага много усилия да убеди и програмистите, че тестването е начина да се осигури по-добър код. Играе тенис на маса и поддържа добрата спортна форма с любимото колело. Обича разходки сред природата и пикник покрай рекички(за да си охлади биричката), но най-много си обича екипа!
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="lanavi">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="https://www.youtube.com/user/leonanavi" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/LeonAnavi.jpg" alt="Леон Анави">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/LeonAnavi.jpg" alt="Леон Анави">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="https://www.youtube.com/user/leonanavi" target="blank">Леон Анави</a>
-								</h5>
-								<p class="lector-resume">
-									Леон обича да се занима с open-source проекти в свободното си време, а през другото работи като софтуерен инженер на мобилни приложения. В момента интересите му са фокусирани върху Tizen, Qt, Qt for Tizen и SailfishOS.
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="schekanov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/schekanov.png" alt="Стефан Чеканов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/schekanov.png" alt="Стефан Чеканов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Стефан Чеканов</a>
-									<a class="lector-company" href="http://www.brosix.com" target="blank">Brosix</a>
-								</h5>
-								<p class="lector-resume">Стефан се занимава със софтуер от 28 години, 19 от тях професионално. През последните 13 години ръководи проекти и екипи, които разработват комплексни продукти и услуги.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="kdjelebov">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a>
-										<div class="image">
-											<img src="dist/images/lectors/koceto.png" alt="Константин Джелебов">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/koceto.png" alt="Константин Джелебов">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name">Константин Джелебов</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">Коцето е програмист, философ, икономист, спортист, историк, политолог, психолог, общественик, джентълмен, любител на вкусната храна и женската красота. Работи в Proxiad Bulgaria като кадрови девелъпър с Java. Прави всичко да работи (ама всичко). В работата голяма радост му доставя да прави иначе скучния интерфейс да има ефекта "УАУ!" с Java FX.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="svartolomeev">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://www.stefolog.com/blog/" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/stef.png" alt="Стефан Вартоломеев">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/stef.png" alt="Стефан Вартоломеев">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://www.stefolog.com/blog/" target="blank">Стефан Вартоломеев</a>
-									<a class="lector-company" href="http://www.proxiad.com/" target="blank">Proxiad</a>
-								</h5>
-								<p class="lector-resume">До преди известно време преподава във ФМИ към СУ "Св. Климент Охридски" някакви предмети свързани с Web програмиране и бази данни. От известно време програмира на Java и много се кефи. Експериментира с други уж по-екзотични езици като Ruby и Python. Много добре знае PHP, но умело се прикрива. Обича Mac-a и котката си, както и много да размишлява над процеса си на работа. Пробва различни agile методологии, като понякога дори и му се получава! Работи във Proxiad Bulgaria, където с финес убива всеки проект, до който се докопа. Незнайно защо обаче, във фирмата е на почит и дори го поощряват да си организира конференцийки като <a href="https://www.facebook.com/events/324741870990622/" target="blank">POJO Conf</a> и <a href="#">PlovDev</a>. Няколко пъти е оживявал след нощно каране на ролери из тъмните софийски улички.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="lector" id="skanev">
-						<div class="container row">
-							<div class="col-xs-4 col-sm-4 col-md-2">
-								<div class="lector-photo">
-									<a href="http://skanev.com/" target="blank">
-										<div class="image">
-											<img src="dist/images/lectors/skanev.jpg" alt="Стефан Кънев">
-										</div>
-										<div class="image-hover">
-											<img src="dist/images/lectors/skanev.jpg" alt="Стефан Кънев">
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-10">
-								<h5>
-									<a class="lector-name" href="http://skanev.com/" target="blank">Стефан Кънев</a>
-									<a class="lector-company" href="http://artilect.se/" target="blank">Artilect</a>
-								</h5>
-								<p class="lector-resume">Стефан се занимава с програмиране откакто се помни. Сред любимите му неща са Ruby, Vim, автоматизирани тестове, папийонки, Apple продуктите и всевъзможни екзотични езици за програмиране. В заетото си време програмира на Rails, а в свободното - води един-два курса във ФМИ към СУ, пише много код, който после трие и се опитва да не се нарани с планинското си колело. Никак не обича PHP и е амбивалентен към Java.</p>
-							</div>
-						</div>
-					</div>
-
+					<!-- Speakers data -->
 				</div>
 			</section>
-			<!-- END LECTURER SECTION -->
+			<!-- END SPEAKERS SECTION -->
 
 
 			<!-- START TSHIRT SECTION -->
@@ -538,23 +326,6 @@
 		</div>
 		<!-- END PAGE -->
 
-		<!-- Bootstrap Scripts -->
-		<script src="dist/js/jquery.min.js"></script>
-		<script src="dist/js/bootstrap.min.js"></script>
-
-		<!-- Jquery Scripts -->
-		<script src="dist/js/jquery.mixitup.min.js"></script>
-		<script src="dist/js/jquery.easing.min.js"></script>
-		<script src="dist/js/jquery.slimbox2.js"></script>
-
-		<!-- Swiper Plugin -->
-		<script src="dist/js/idangerous.swiper-1.9.3.min.js"></script>
-
-		<!-- Specific Scripts -->
-		<script src="dist/js/scripts.min.js"></script>
-		<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-	    <script src="dist/js/respond.min.js"></script>
-
 		<div id="lbBottomContainer" style="display: none;">
 			<div id="lbBottom">
 				<div id="lbOverlay" style="display: none;"></div>
@@ -563,5 +334,31 @@
 				<div style="clear: both;"></div>
 			</div>
 		</div>
+
+
+    <!-- Bootstrap Scripts -->
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <!-- Jquery Scripts -->
+    <script src="dist/js/jquery.mixitup.min.js"></script>
+    <script src="dist/js/jquery.easing.min.js"></script>
+    <script src="dist/js/jquery.slimbox2.js"></script>
+
+    <!-- Swiper Plugin -->
+    <script src="dist/js/idangerous.swiper-1.9.3.min.js"></script>
+
+    <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+    <script src="dist/js/respond.min.js"></script>
+
+    <script src="dist/js/custom.modernizr.js"></script>
+
+    <!-- Backbone.JS -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
+
+    <!-- Specific Scripts -->
+    <script src="dist/js/scripts.js"></script>
+    <script src="dist/js-gen/main.js"></script>
 	</body>
 </html>
