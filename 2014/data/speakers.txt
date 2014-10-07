@@ -1,5 +1,5 @@
 
-1. Ангел Георгиев (М): ???
+1. Ангел Георгиев (М): Hackidemia: Как да запалим искрата в детските очи
 
 2. Ивайло Лесев (M): Gaming in Developer Mode
 
@@ -13,3 +13,30 @@
 
 7. Костадин Голев (M): Writing SOLID code: преразказ с елементи на разсъждение
 (+ женска L)
+
+8. Стефан Чеканов (L): Team Programming
+
+
+
+Програма
+09:30 Кафе
+10:00 Откриване
+
+10:10 Тихомир Недев: Drone Hacking: how to program your aerial army
+11:00 Костадин Голев: Writing SOLID code: преразказ с елементи на разсъждение
+11:50 Ангел Георгиев: Hackidemia: Как да запалим искрата в детските очи
+
+12:30 Обяд
+
+13:20 Минко Гечев: AngularJS in Patterns
+14:10 Ники Петков: Java 8 features lost in the hype
+15:00 Владимир Джувинов: Mind patterns and anti-patterns
+
+15:40 Кафе пауза
+
+16:00 Ивайло Лесев: Gaming in Developer Mode
+16:50 Стефан Чеканов: Team Programming
+
+17:40 Lightning talks
+18:40 Закриване
+

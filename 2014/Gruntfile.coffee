@@ -27,7 +27,7 @@ module.exports = (grunt) ->
           port: 21
           authKey: 'plovdev'
         src: '.'
-        dest: '/public_html/2014_2'
+        dest: '/public_html/2014'
         exclusions: ['**/.DS_Store', '**/Thumbs.db', 'node_modules', '.git', '.gitignore', 'package.json', '.ftppass', '.grunt', '**/*.coffee']
 
 

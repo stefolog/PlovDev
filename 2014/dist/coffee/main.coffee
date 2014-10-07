@@ -49,7 +49,6 @@ SpeakerView = Backbone.View.extend {
     template = _.template $('#speaker_template').html()
 
     $(this.el).addClass("lector");
-    $(this.el).attr('id', this.model.get('id'))
 
     $(this.el).html(
       template
