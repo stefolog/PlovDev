@@ -277,11 +277,18 @@ h3.entrance {
 		height: 50%;
 	}
 }
+
 a.anchor{
 	display: block;
 	position: relative;
 	top: -50px;
 	visibility: hidden;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {

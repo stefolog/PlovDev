@@ -15,6 +15,11 @@
     "logo": "dist/images/logo/hackafe.png"
   },
   {
+    "title": "Международен панаир Пловдив",
+    "url": "http://fair.bg/",
+    "logo": "dist/images/logo/fair.png"
+  },
+  {
     "title": "Mediacafe",
     "url": "http://mediacafe.bg/",
     "logo": "dist/images/logo/mediacafe-logo.png"
