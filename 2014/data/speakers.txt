@@ -24,13 +24,13 @@
 
 10:10 Тихомир Недев: Drone Hacking: how to program your aerial army
 11:00 Костадин Голев: Writing SOLID code: преразказ с елементи на разсъждение
-11:50 Ангел Георгиев: Hackidemia: Как да запалим искрата в детските очи
+11:50 Владимир Джувинов: Mind patterns and anti-patterns
 
 12:30 Обяд
 
 13:20 Минко Гечев: AngularJS in Patterns
 14:10 Ники Петков: Java 8 features lost in the hype
-15:00 Владимир Джувинов: Mind patterns and anti-patterns
+15:00 Ангел Георгиев: Hackidemia: Как да запалим искрата в детските очи
 
 15:40 Кафе пауза
 

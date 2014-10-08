@@ -17,12 +17,13 @@
   "resume": "Известен повече като Коце. Започнал програмистката си кариера c HTML, CSS, C, Visual Basic, Perl, PHP и какво ли още не, преди да започне да пише на Java преди има-няма десет години. Не може да работи ако не му работи тестовия фреймуърк. В свободното си време разпуска активно с екстремни спортове като ски, маунтинбайк и уиндсърф."
 },
 {
-  "id": "ageorgiev",
-  "name": "Ангел Георгиев",
-  "img": "dist/images/lectors/ageorgiev.jpg",
-  "company": {"name": "Hackidemia", "url": "http://www.hackidemia.com/"},
+  "id": "vdjuvinov",
+  "name": "Владимир Джувинов",
+  "img": "dist/images/lectors/djuvi.jpg",
+  "personalPage": "http://dzhuvinov.com/",
+  "company": {"name": "Connect2id", "url": "http://www.connect2id.com/"},
 
-  "resume": "Ангел Георгиев притежава странния микс от 8 години опит в продуктовия маркетинг за големи международни компании и 1 година опит в програмирането. В момента прави продуктови обучения за <a href=\"http://sonymobile.com\" target=\"blank\">Sony</a>, води лекции в <a href=\"https://softuni.bg/\" target=\"blank\">Софтуерния Университет</a>, а в свободното си време и технологични работилници за деца във всички възрасти за <a href=\"http://www.hackidemia.com/\" target=\"blank\">Hackidemia</a>."
+  "resume": "Все по-добър софтуер, все по-доволни клиенти, това е неговото работно мото. Разработва продукти за удостоверяване и достъп от ново поколение в <a href=\"http://www.connect2id.com\" target=\"_blank\">Connect2id</a>. Участва в работните групи на OpenID Connect, OAuth и JOSE. Mайстор на планинския байк, за което свидетелстват изявите му с Kрива спица. Ако искате да го намерите - просто питайте за Джуви в <a href=\"http://hackafe.org/\" target=\"blank\">Hackafe</a>."
 },
 {
   "id": "mgechev",
@@ -41,13 +42,12 @@
   "resume": "Николай е Project Manager в Proxiad. Вече 10 години ляга и става с Java. Злите езици казват “He has realy good coding skills!”…  Плуваа свободно в дълбоките води на  Design patters, Spring и Java EE. Фен е на модерните езици като Groovy и Scala, а като мениджър много се радва на съществуването на Agile, Lean.. и всички леки мениджмънт методологии. Страстен привърженик е на тестването  и continuous integration-а  и полага много усилия да убеди и програмистите, че тестването е начина да се осигури по-добър код. Играе тенис на маса и поддържа добрата спортна форма с любимото колело. Обича разходки сред природата и пикник покрай рекички(за да си охлади биричката), но най-много си обича екипа!"
 },
 {
-  "id": "vdjuvinov",
-  "name": "Владимир Джувинов",
-  "img": "dist/images/lectors/djuvi.jpg",
-  "personalPage": "http://dzhuvinov.com/",
-  "company": {"name": "Connect2id", "url": "http://www.connect2id.com/"},
+  "id": "ageorgiev",
+  "name": "Ангел Георгиев",
+  "img": "dist/images/lectors/ageorgiev.jpg",
+  "company": {"name": "Hackidemia", "url": "http://www.hackidemia.com/"},
 
-  "resume": "Все по-добър софтуер, все по-доволни клиенти, това е неговото работно мото. Разработва продукти за удостоверяване и достъп от ново поколение в <a href=\"http://www.connect2id.com\" target=\"_blank\">Connect2id</a>. Участва в работните групи на OpenID Connect, OAuth и JOSE. Mайстор на планинския байк, за което свидетелстват изявите му с Kрива спица. Ако искате да го намерите - просто питайте за Джуви в <a href=\"http://hackafe.org/\" target=\"blank\">Hackafe</a>."
+  "resume": "Ангел Георгиев притежава странния микс от 8 години опит в продуктовия маркетинг за големи международни компании и 1 година опит в програмирането. В момента прави продуктови обучения за <a href=\"http://sonymobile.com\" target=\"blank\">Sony</a>, води лекции в <a href=\"https://softuni.bg/\" target=\"blank\">Софтуерния Университет</a>, а в свободното си време и технологични работилници за деца във всички възрасти за <a href=\"http://www.hackidemia.com/\" target=\"blank\">Hackidemia</a>."
 },
 {
   "id": "ilesev",
