@@ -20,43 +20,22 @@ Speaker = Backbone.Model.extend
       name: ''
       url: ''
 
+programSlotPrecompiledTemplate = _.template $('#program_slot_template').html()
+speakerPrecompiledTemplate = _.template $('#speaker_template').html()
 
-ProgramSlotView = Backbone.View.extend {
+class ProgramSlotView extends Backbone.View
   tagName: 'tr'
 
-  initialize: () ->
-    _.bindAll(this, 'render')
-    return
-
-  render: () ->
-    template = _.template $('#program_slot_template').html()
-    $(this.el).append(
-      template
-        slot: this.model
-    )
-    return this.el
-}
+  render: ->
+    @$el.append(programSlotPrecompiledTemplate(slot: this.model))
 
 
-SpeakerView = Backbone.View.extend {
+class SpeakerView extends Backbone.View
   tagName: 'div'
 
-  initialize: () ->
-    _.bindAll(this, 'render')
-    return
-
-  render: () ->
-    template = _.template $('#speaker_template').html()
-
-    $(this.el).addClass("lector");
-
-    $(this.el).html(
-      template
-        speaker: this.model
-    )
-
-    return this.el
-}
+  render: ->
+    @$el.addClass('lector')
+    @$el.html(speakerPrecompiledTemplate(speaker: this.model))
 
 
 Program = Backbone.Collection.extend
@@ -68,7 +47,7 @@ Speakers = Backbone.Collection.extend
   url: './data/speakers.json'
 
 
-$( () ->
+$ ->
   program = new Program()
   program.fetch
     success: (collection) ->
@@ -83,7 +62,6 @@ $( () ->
   speakers = new Speakers()
   speakers.fetch
     success: (collection) ->
-      for speaker in collection.models
-        speaker = new SpeakerView( { model: speaker })
-        $('#lectors-info').append(speaker.render())
-)
+      collection.each (speaker) ->
+        $('#lectors-info').append(new SpeakerView( { model: speaker }).render())
+
