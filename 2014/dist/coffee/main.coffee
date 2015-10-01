@@ -1,6 +1,10 @@
-_.templateSettings.variable = "ctx"
+_.templateSettings.variable = 'ctx'
 
-ProgramSlot = Backbone.Model.extend
+programSlotPrecompiledTemplate = _.template $('#program_slot_template').html()
+speakerPrecompiledTemplate = _.template $('#speaker_template').html()
+
+
+class ProgramSlot extends Backbone.Model
   defaults:
     start: ''
     title: ''
@@ -9,7 +13,7 @@ ProgramSlot = Backbone.Model.extend
       id: ''
       name: ''
 
-Speaker = Backbone.Model.extend
+class Speaker extends Backbone.Model
   defaults:
     id: ''
     name: ''
@@ -20,29 +24,26 @@ Speaker = Backbone.Model.extend
       name: ''
       url: ''
 
-programSlotPrecompiledTemplate = _.template $('#program_slot_template').html()
-speakerPrecompiledTemplate = _.template $('#speaker_template').html()
 
 class ProgramSlotView extends Backbone.View
   tagName: 'tr'
 
   render: ->
-    @$el.append(programSlotPrecompiledTemplate(slot: this.model))
-
+    @$el.append(programSlotPrecompiledTemplate(slot: @model))
 
 class SpeakerView extends Backbone.View
   tagName: 'div'
 
   render: ->
     @$el.addClass('lector')
-    @$el.html(speakerPrecompiledTemplate(speaker: this.model))
+    @$el.html(speakerPrecompiledTemplate(speaker: @model))
 
 
-Program = Backbone.Collection.extend
+class Program extends Backbone.Collection
   model: ProgramSlot
   url: './data/program.json'
 
-Speakers = Backbone.Collection.extend
+class Speakers extends Backbone.Collection
   model: Speaker
   url: './data/speakers.json'
 
@@ -56,12 +57,13 @@ $ ->
         $('#nav-agenda').detach()
 
       for slot in collection.models
-        slotView = new ProgramSlotView( { model: slot })
+        slotView = new ProgramSlotView(model: slot)
         $('#agenda-table table').append(slotView.render())
 
   speakers = new Speakers()
   speakers.fetch
     success: (collection) ->
+      li = $('#lectors-info')
       collection.each (speaker) ->
-        $('#lectors-info').append(new SpeakerView( { model: speaker }).render())
+        li.append(new SpeakerView(model: speaker)
 
