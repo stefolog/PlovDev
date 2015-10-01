@@ -1,0 +1,296 @@
+#plovdev-logo {
+	font-family: 'PlovDev';
+	font-size: 2em;
+	color: #FFF;
+}
+
+#logo-lettering {
+	width: 180px;
+	height: 45px;
+}
+
+#header #intro #explore {
+	opacity: 1;
+	margin-top: 5em;
+}
+
+#intro {
+	background: url('../images/logo/plovdev-stroke-2015.png') #FFF no-repeat center center;
+
+	background-size: 95%;
+
+	-webkit-border-radius: 70px;
+	border-radius: 70px;
+
+	padding: 10px 45px;
+	opacity: 0.88;
+	height: 200px;
+}
+
+.paragraph {
+	text-align: left;
+}
+
+#plovdev-map {
+	border: 2px solid #43b3fb;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+h3.entrance {
+	margin: 0;
+}
+
+#agenda #agenda-table {
+	margin-top: 20px;
+	text-align: left;
+}
+
+#agenda #agenda-table a {
+	color: #43b3fb;
+	font-weight: bold;
+}
+
+#agenda #agenda-table a:hover {
+	text-decoration: none;
+	color: #43b3fb;
+}
+
+#lectors-info {
+	margin-top: 20px;
+	text-align: left;
+}
+
+#lectors-info .lector {
+	margin-top: 15px;
+}
+
+.lector-resume {
+	display: block;
+	margin-top: 20px;
+}
+
+
+.lector .lector-photo {
+	margin-top: 25px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	height: 100px;
+	width: 100px;
+	vertical-align: middle;
+	float: right;
+}
+
+.lector a:hover {
+	text-decoration: none;
+}
+
+.lector-name {
+
+}
+
+.lector-company {
+	background-color: #43b3fb;
+	padding: 3px 6px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	color: #FFFFFF;
+	float: right;
+}
+
+.lector-company:hover {
+	background-color: #747474;
+	color: #FFF;
+}
+
+#sponsor-logos {
+	margin-top: 35px;
+}
+
+#sponsors #sponsor-logos .sponsor-text h3 {
+	color: #00234F;
+}
+
+.hidden {
+	display: none;
+}
+
+.tshirt-img, .sponsor-logo {
+	width: 100%;
+	height: 100%;
+}
+
+.sponsor-logo-small {
+	width: 50%;
+	height: 50%;
+}
+
+.sponsor-logo-very-small {
+	width: 25%;
+	height: 25%;
+}
+
+#social-profiles ul.centerUl li a:hover .twitter-ico {
+	color: #43b3fb;
+}
+
+.no-tshirt-warning {
+	color:red;
+	font-weight: normal;
+}
+
+@media only screen and (max-width: 2200px) {
+
+	#logo_image {
+		margin: 10px auto;
+		width: 500px;
+		height: 150px;
+	}
+
+	#header{
+		overflow: hidden;
+		height: auto;
+		background: url('../images/background.jpg') fixed no-repeat;
+		height: 100%;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+
+	#logo_image {
+		margin: 10px auto;
+		width: 400px;
+		height: 120px;
+	}
+
+	#header{
+		overflow: hidden;
+		height: auto;
+		background: url('../images/background.jpg') fixed no-repeat;
+		height: 100%;
+	}
+}
+@media handheld, only screen and (max-width: 1024px) {
+
+	#logo_image {
+		margin: 10px auto;
+		width: 300px;
+		height: 90px;
+	}
+	.lector .lector-photo {
+		height: 80px;
+		width: 80px;
+	}
+
+	#header{
+		overflow: hidden;
+		height: auto;
+		background: url('../images/background.jpg') fixed no-repeat;
+		height: 100%;
+	}
+
+	.sponsor-logo-very-small {
+		width: 35%;
+		height: 35%;
+	}
+}
+@media handheld, only screen and (max-width: 767px) {
+
+	#header{
+		background: #20294A; /* Old browsers */
+	}
+
+	.sponsor-logo-very-small {
+		width: 35%;
+		height: 35%;
+	}
+}
+@media handheld, only screen and (max-width: 600px) {
+	.lector-resume {
+		display: none;
+	}
+	.lector .lector-photo {
+		height: 70px;
+		width: 70px;
+	}
+
+	#header{
+		background: #20294A; /* Old browsers */
+	}
+
+	#lectors-info .lector {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#intro {
+		background: url('../images/logo/plovdev-stroke-2015.png') no-repeat center center;
+		background-size: 95%;
+
+		padding: 0px 45px;
+		opacity: 0.88;
+		height: 200px;
+	}
+
+	.sponsor-logo-very-small {
+		width: 50%;
+		height: 50%;
+	}
+}
+@media handheld, only screen and (max-width: 500px) {
+
+	#logo_image {
+		margin: 10px auto;
+		width: 100px;
+		height: 30px;
+	}
+
+	.lector-resume {
+		display: none;
+	}
+
+	.lector .lector-photo {
+		height: 65px;
+		width: 65px;
+	}
+
+	#header{
+		background: #20294A; /* Old browsers */
+	}
+
+	#lectors-info .lector {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#intro {
+		background: url('../images/logo/plovdev-stroke.png') no-repeat center center;
+		background-size: 95%;
+
+		padding: 0px 45px;
+		opacity: 0.88;
+		height: 200px;
+	}
+
+	.sponsor-logo-very-small {
+		width: 50%;
+		height: 50%;
+	}
+}
+
+a.anchor{
+	display: block;
+	position: relative;
+	top: -50px;
+	visibility: hidden;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+}
+

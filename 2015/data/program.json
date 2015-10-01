@@ -1,0 +1,72 @@
+[
+  {
+    "start": "10:00",
+    "icon": "coffee",
+    "title":"Кафе и регистрация"
+  },
+  {
+    "start": "10:20",
+    "icon": "signin",
+    "title":"Откриване"
+  },
+  {
+    "start": "10:30",
+    "title": "Drone Hacking: how to program your aerial army",
+    "speaker": {"id":"tnedev", "name": "Тихомир Недев"}
+  },
+  {
+    "start": "11:10",
+    "title": "Writing SOLID code: преразказ с елементи на разсъждение",
+    "speaker": {"id":"kgolev", "name": "Костадин Голев"}
+  },
+  {
+    "start": "11:50",
+    "title": "Mind patterns and anti-patterns",
+    "speaker": {"id":"vdjuvinov", "name": "Владимир Джувинов"}
+  },
+  {
+    "start": "12:30",
+    "icon": "food",
+    "title":"Обедна почивка"
+  },
+  {
+    "start": "13:30",
+    "title": "AngularJS in Patterns",
+    "speaker": {"id": "mgechev", "name": "Минко Гечев"}
+  },
+  {
+    "start": "14:10",
+    "title": "Java 8 features lost in the hype",
+    "speaker": {"id":"npetkov", "name": "Ники Петков"}
+  },
+  {
+    "start": "14:50",
+    "title": "Hackidemia: Как да запалим искрата в детските очи",
+    "speaker": {"id":"ageorgiev", "name": "Ангел Георгиев"}
+  },
+  {
+    "start": "15:30",
+    "icon": "coffee",
+    "title":"Кафе пауза"
+  },
+  {
+    "start": "15:50",
+    "title": "Gaming in Developer Mode",
+    "speaker": {"id":"ilesev", "name": "Ивайло Лесев"}
+  },
+  {
+    "start": "16:30",
+    "title": "Team Programming",
+    "speaker": {"id":"schekanov", "name": "Стефан Чеканов"}
+  },
+  {
+    "start": "17:20",
+    "icon": "comments-alt",
+    "title":"Lightning talks"
+  },
+  {
+    "start": "18:20",
+    "icon": "signout",
+    "title":"Закриване"
+  }
+]

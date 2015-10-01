@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="js no-touch svg inlinesvg svgclippaths no-ie8compat" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>PlovDev 2015</title>
+
+    <!-- TAB ICON -->
+    <link href="http://www.proxiad.com/wp-content/themes/Proxiad/images/favicon.ico" rel="shortcut icon">
+
+    <!-- FONTS -->
+    <link href="dist/css/fonts.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="dist/css/plovdev-fonts.css" type="text/css">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="dist/css/slimbox2.css" type="text/css">
+
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <link rel="stylesheet" href="dist/css/plovdev.css" type="text/css">
+
+    <script type="text/template" id="speaker_template">
+        <div class="container row">
+          <a class="anchor" id="<%- ctx.speaker.get('id') %>"></a>
+          <div class="col-xs-4 col-sm-4 col-md-2">
+            <div class="lector-photo">
+
+        <% if (ctx.speaker.get('personalPage')) { %>
+              <a href="<%- ctx.speaker.get('personalPage') %>" target="blank">
+                <div class="image image-hover">
+                  <img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+                </div>
+              </a>
+        <% } else { %>
+              <div class="image image-hover">
+                <img src="<%- ctx.speaker.get('img') %>" alt="<%- ctx.speaker.get('name') %>">
+              </div>
+        <% } %>
+            </div>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-10">
+            <h5>
+
+        <% if (ctx.speaker.get('personalPage')) { %>
+              <a class="lector-name" href="<%- ctx.speaker.get('personalPage') %>" target="blank"><%- ctx.speaker.get('name') %></a>
+        <% } else { %>
+              <a class="lector-name"><%- ctx.speaker.get('name') %></a>
+        <% } %>
+
+        <% if (ctx.speaker.get('company').name) { %>
+              <a class="lector-company" href="<%- ctx.speaker.get('company').url %>" target="blank"><%- ctx.speaker.get('company').name %></a>
+        <% } %>
+            </h5>
+            <p class="lector-resume"><%= ctx.speaker.get('resume') %></p>
+          </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="program_slot_template">
+        <td><time><%- ctx.slot.get('start') %></time></td>
+
+        <% if (ctx.slot.get('icon')) { %>
+          <td><i class="icon-<%- ctx.slot.get('icon') %>"></i> <%- ctx.slot.get('title') %></td>
+        <% } else { %>
+          <td><%- ctx.slot.get('title') %></td>
+        <% } %>
+
+        <% if (ctx.slot.get('speaker')) { %>
+          <td><a class="scroll" href="#<%- ctx.slot.get('speaker').id %>"><%- ctx.slot.get('speaker').name %></a></td>
+        <% } else { %>
+          <td></td>
+        <% } %>
+    </script>
+  </head>
+
+
+  <body>
+
+    <!-- START PAGE -->
+    <div id="page">
+
+      <!-- START HEADER -->
+      <header id="header" class="smooth">
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="scroll" href="#info">
+              <div id="intro" class="text-container">
+                <div id="logo_image"></div>
+                <div id="explore"><i class="icon-chevron-sign-down icon-4x"></i></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </header>
+      <!-- END HEADER -->
+
+      <!-- START TOP-BAR -->
+      <div id="top-bar" style="top: 0px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+
+              <div id="logo-lettering">
+                <a class="scroll" style="text-decoration: none;" href="#header">
+                  <p id="plovdev-logo">PlovDev 2015</p>
+                </a>
+              </div>
+
+              <div id="menu-mobile" class="hidden-md hidden-lg">
+                <i class="icon-reorder icon-2x"></i>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <nav id="top-navigation">
+                <ul class="list-inline">
+                  <li id="nav-info"><a href="#info">инфо</a></li>
+                  <!-- <li id="nav-agenda"><a href="#agenda">програма</a></li> -->
+                  <li id="nav-speakers"><a href="#lecturer">лектори</a></li>
+                  <li id="nav-tshirt"><a href="#tshirt">искаш тениска?</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END TOP-BAR -->
+
+
+      <!-- START INFO SECTION -->
+      <a name="info"></a>
+      <section id="info">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h1>За PlovDev</h1>
+            <p class="paragraph">PlovDev е еднодневна ИТ конференция.
+              Целта на събитието е да съберем студенти и хора от бизнеса, които да обменят опит и ентусиазъм и да помогнем на ИТ обществото в града да се развие.
+              Лекторите и темите ще са разнообразни, за да привлечем хора с различни интереси.
+              Събитието се организира от <a href="http://www.proxiad.com/" target="_blank">Proxiad България</a> с помощта на <a href="http://hackafe.org/" target="_blank">Hackafe</a> и Стефан Вартоломеев.</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <p class="paragraph">Събитието ще се състои на <b>10 Октомври, 2015</b></p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h3 class="entrance well well-sm">Вход свободен!</h3>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 contact-info">
+            <div class="row">
+              <div class="col-sm-4 contact">
+                <div class="icon">
+                  <a href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=PlovDev&amp;dates=20151010/20151010&amp;details&amp;location=%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2,+%D0%A2%D1%80%D0%B8%D0%BC%D0%BE%D0%BD%D1%86%D0%B8%D1%83%D0%BC+%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B5%D1%81+%D0%A5%D0%BE%D1%82%D0%B5%D0%BB,+%D0%9A%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%82%D0%BD%D0%B0+%D0%97%D0%B0%D0%BB%D0%B0+%D0%99%D0%BE%D0%BB%D0%BE%D0%B2&amp;trp=false&amp;sprop&amp;sprop=name:&amp;pli=1&amp;sf=true&amp;output=xml#eventpage_6" target="_blank" title="Добави в Google Calendar">
+                    <i class="icon-calendar icon-3x"></i>
+                  </a>
+                </div>
+                <p>10 Октомври, 2015<br/>10:00ч</p>
+              </div>
+              <div class="col-sm-4 contact">
+                <div class="icon">
+                  <a href="https://www.google.com/maps/embed/v1/place?q=Trimontium+Princess+Hotel&amp;key=AIzaSyD6tJd4HQKbvR9B8_R3_xGgLDWcXTo2hN0&amp;language=bg" target="_blank" title="3D изглед">
+                    <i class="icon-map-marker icon-3x"></i>
+                  </a>
+                </div>
+                <p>гр. Пловдив,<br />Тримонциум Принцес Хотел,<br />Конферентна Зала Йолов</p>
+              </div>
+              <div class="col-sm-4 contact">
+                <div class="icon">
+                  <a href="mailto:stef@plovdev.com?Subject=PlovDev" title="Пиши на Стеф"><i class="icon-envelope icon-3x"></i></a>
+                </div>
+                <p>stef@plovdev.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12  col-sm-6 col-sm-offset-3">
+            <iframe id='plovdev-map' height="350" scrolling="no" src="https://www.google.com/maps/embed/v1/place?q=Trimontium+Princess+Hotel&amp;key=AIzaSyD6tJd4HQKbvR9B8_R3_xGgLDWcXTo2hN0&amp;language=bg" width="100%"></iframe>
+          </div>
+        </div>
+      </section>
+      <!-- END INFO SECTION -->
+
+      <a name="schedule"></a>
+      <!-- START AGENDA SECTION -->
+      <section id="agenda" style="display: none">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h1>Програма</h1>
+          </div>
+
+          <div id="agenda-table" class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <table class="table">
+              <tr>
+                <th>Час</th>
+                <th>Тема</th>
+                <th>Лектор</th>
+              </tr>
+
+              <!-- Program data -->
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- END AGENDA SECTION -->
+
+
+      <!-- START SPEAKERS SECTION -->
+      <a name="speakers"></a>
+      <section id="lecturer">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h1>Лектори</h1>
+          </div>
+        </div>
+
+        <div id="lectors-info">
+          <!-- Speakers data -->
+        </div>
+      </section>
+      <!-- END SPEAKERS SECTION -->
+
+
+      <!-- START TSHIRT SECTION -->
+      <a name="tshirt"></a>
+      <section id="tshirt">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6">
+            <h1>Тениски</h1>
+            <p class="paragraph">За спомен от PlovDev можете да си вземете тениска. Една тениска е на цена <b>10 лв</b>, а събраните пари отиват за помощ на дом за сираци в с. Разлив.</p>
+          </div>
+<!--
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-sm-4 col-sm-offset-1">
+                <img class="tshirt-img" src="dist/images/tshirts/tshirt_front.png">
+              </div>
+              <div class="col-sm-4 col-sm-offset-2">
+                <img class="tshirt-img" src="dist/images/tshirts/tshirt_back.png">
+              </div>
+            </div>
+          </div>
+-->
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h4 class="well well-sm no-tshirt-warning" style="display: none">Срокът за заявки за тениски изтече.<br/>Не се отчайвай! Все още имаш шанс да получиш тениска на конференцията.</h4>
+
+            <h3 class="well well-sm"><a href="https://docs.google.com/forms/d/1nHJ2whrf3VYpd-yiX7wEUkZuLNiEa8xZO0-RCreJGs8/viewform" target="blank">Можете да запазите тениска тук.</a></h3>
+          </div>
+        </div>
+      </section>
+      <!-- END TSHIRT SECTION -->
+
+      <!-- START SPONSORS SECTION -->
+      <section id="sponsors">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h3>Специални благодарности</h3>
+            <p class="paragraph">Благодарим на нашите спонсори и ентусиастите, без които събитието щеше да бъде само поредната мисъл родила се в замечтания поглед на един отнесен в мечтите си програмист.</p>
+          </div>
+
+          <div id="sponsor-logos" class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-xs-6 col-sm-4 col-sm-offset-1">
+                <a href="http://www.proxiad.com/" target="blank">
+                  <img class="sponsor-logo" src="dist/images/logo/proxiad.png">
+                </a>
+              </div>
+              <div class="col-xs-6 col-sm-4 col-sm-offset-2">
+                <a href="http://www.proxiad.com/" target="blank">
+                  <img class="sponsor-logo" src="dist/images/logo/ptx.png">
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-4 col-sm-offset-0 vcenter">
+                <a href="http://hackafe.org/" target="blank">
+                  <img class="sponsor-logo" src="dist/images/logo/hackafe.png">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="display: none">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <h3>С медийната подкрепа</h3>
+          </div>
+
+          <div id="sponsor-logos" class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <a href="http://mediacafe.bg/" target="blank">
+              <img class="sponsor-logo-very-small" src="dist/images/logo/mediacafe-logo.png">
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- END SPONSORS SECTION -->
+
+
+      <!-- START FOOTER -->
+      <footer>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <hr>
+             <div id="social-profiles">
+              <ul class="centerUl">
+                <li><a href="https://www.facebook.com/events/532598486892893" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>
+                <li><a href="https://twitter.com/search?q=%23PlovDev&src=typd&f=realtime" target="_blank"><i class="twitter-ico icon-twitter icon-2x"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <p id="copyrights">PlovDev® Made by Proxiad TechExchange™. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      <!-- END FOOTER -->
+    </div>
+    <!-- END PAGE -->
+
+    <div id="lbBottomContainer" style="display: none;">
+      <div id="lbBottom">
+        <div id="lbOverlay" style="display: none;"></div>
+        <div id="lbCaption"></div>
+        <div id="lbNumber"></div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap Scripts -->
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <!-- Jquery Scripts -->
+    <script src="dist/js/jquery.mixitup.min.js"></script>
+    <script src="dist/js/jquery.easing.min.js"></script>
+    <script src="dist/js/jquery.slimbox2.js"></script>
+
+    <!-- Swiper Plugin -->
+    <script src="dist/js/idangerous.swiper-1.9.3.min.js"></script>
+
+    <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+    <script src="dist/js/respond.min.js"></script>
+
+    <script src="dist/js/custom.modernizr.js"></script>
+
+    <!-- Backbone.JS -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="http://backbonejs.org/backbone-min.js"></script>
+
+    <!-- Specific Scripts -->
+    <script src="dist/js/scripts.js"></script>
+    <script src="dist/js-gen/main.js"></script>
+  </body>
+</html>

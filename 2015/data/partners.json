@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Проксиад България",
+    "url": "http://www.proxiad.com/",
+    "logo": "dist/images/logo/proxiad.png"
+  },
+  {
+    "title": "Proxiad Tech Exchange",
+    "url": "http://www.proxiad.com/",
+    "logo": "dist/images/logo/ptx.png"
+  },
+  {
+    "title": "Hackafe",
+    "url": "http://hackafe.org/",
+    "logo": "dist/images/logo/hackafe.png"
+  }
+]
