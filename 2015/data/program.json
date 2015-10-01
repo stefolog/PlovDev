@@ -11,12 +11,12 @@
   },
   {
     "start": "10:30",
-    "title": "Drone Hacking: how to program your aerial army",
-    "speaker": {"id":"tnedev", "name": "Тихомир Недев"}
+    "title": "Keynote",
+    "speaker": {"id":"xxxxx", "name": "Keynote Speaker"}
   },
   {
     "start": "11:10",
-    "title": "Writing SOLID code: преразказ с елементи на разсъждение",
+    "title": "XXXX",
     "speaker": {"id":"kgolev", "name": "Костадин Голев"}
   },
   {
