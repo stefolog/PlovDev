@@ -65,5 +65,5 @@ $ ->
     success: (collection) ->
       li = $('#lectors-info')
       collection.each (speaker) ->
-        li.append(new SpeakerView(model: speaker)
+        li.append(new SpeakerView(model: speaker))
 
