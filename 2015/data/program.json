@@ -11,61 +11,71 @@
   },
   {
     "start": "10:30",
-    "title": "Keynote",
-    "speaker": {"id":"xxxxx", "name": "Keynote Speaker"}
+    "title": "Welcome to the era of DevOps!",
+    "speaker": {"id":"olocard", "name": "Olivier Locard"}
   },
   {
-    "start": "11:10",
-    "title": "XXXX",
-    "speaker": {"id":"kgolev", "name": "Костадин Голев"}
+    "start": "11:30",
+    "icon": "coffee",
+    "title": "Почивка"
   },
   {
-    "start": "11:50",
-    "title": "Mind patterns and anti-patterns",
-    "speaker": {"id":"vdjuvinov", "name": "Владимир Джувинов"}
+    "start": "11:40",
+    "title": "What is hidden in the shadows of Gray Box Testing",
+    "speaker": {"id":"dtotseva", "name": "Диляна Тоцева, Георги Иванов"}
   },
   {
-    "start": "12:30",
+    "start": "12:20",
+    "title": "Introduction to MVC 1.0 (JSR 371)",
+    "speaker": {"id":"ngochev", "name": "Найден Гочев"}
+  },
+  {
+    "start": "13:00",
     "icon": "food",
     "title":"Обедна почивка"
   },
   {
-    "start": "13:30",
-    "title": "AngularJS in Patterns",
-    "speaker": {"id": "mgechev", "name": "Минко Гечев"}
+    "start": "14:00",
+    "title": "Приложения с Кинект",
+    "speaker": {"id": "sstavrev", "name": "Стефан Ставрев"}
   },
   {
-    "start": "14:10",
-    "title": "Java 8 features lost in the hype",
-    "speaker": {"id":"npetkov", "name": "Ники Петков"}
+    "start": "14:40",
+    "title": "New Apple TV: The future of television",
+    "speaker": {"id":"djekov", "name": "Деян Жеков"}
   },
   {
-    "start": "14:50",
-    "title": "Hackidemia: Как да запалим искрата в детските очи",
-    "speaker": {"id":"ageorgiev", "name": "Ангел Георгиев"}
-  },
-  {
-    "start": "15:30",
+    "start": "15:20",
     "icon": "coffee",
     "title":"Кафе пауза"
   },
   {
-    "start": "15:50",
-    "title": "Gaming in Developer Mode",
-    "speaker": {"id":"ilesev", "name": "Ивайло Лесев"}
+    "start": "15:40",
+    "title": "Gentle Introduction To Docker",
+    "speaker": {"id":"rivanov", "name": "Рангел Иванов"}
   },
   {
-    "start": "16:30",
-    "title": "Team Programming",
-    "speaker": {"id":"schekanov", "name": "Стефан Чеканов"}
+    "start": "16:20",
+    "title": "Модулни компютри",
+    "speaker": {"id":"tuzunov", "name": "Цветан Узунов"}
+  },
+  {
+    "start": "17:00",
+    "icon": "coffee",
+    "title":"Кафе пауза"
   },
   {
     "start": "17:20",
+    "title": "Why IT Projects Fail",
+    "speaker": {"id":"iradulovski", "name": "Ivo Radulovski"}
+  },
+  {
+    "start": "18:00",
     "icon": "comments-alt",
     "title":"Lightning talks"
   },
   {
-    "start": "18:20",
+    "start": "18:50",
     "icon": "signout",
     "title":"Закриване"
   }

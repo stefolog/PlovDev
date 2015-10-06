@@ -7,17 +7,9 @@
   "resume": "I'm programming since I was 12 years old, and so I'm used to automate everything I can. Since 2000 I worked mostly as an operational. For the last 5 years, I have been an automation expert, and a convinced of DevOps. Currently, at 42 years old, I am the DevOps CTO of <a href=\"http://www.proxiad.com/\" target=\"_blank\">Proxiad Paris</a>."
 },
 {
-  "id": "sstavrev",
-  "name": "Стефан Ставрев",
-  "img": "dist/images/lectors/sstavrev.png",
-  "company": {"name": "TRI Soft", "url": "http://tri-soft.net/"},
-
-  "resume": "Собственик и управител на <a href=\"http://tri-soft.net/\" target=\"_blank\">TRI Soft</a>. С над 3 години опит в проектирането и разработването на интелигентни системи и игри, и трудов стаж в научната компания TNO - основен партньор на Холандското министерство на отбраната. Понастоящем Стефан се занимава с разработката на иновативни автономни системи, компютърно зрение, разпознаване на лица и разработване на игри и интерактивни архитектурни визуализации в реално време. Изкуствен интелект и модерните технологии за него са не просто академични дисциплини, а и начин на мислене. В свободното си време обича да преподава. Води избираеми курсове в Пловдивския университет \"Паисий Хилендарски\"."
-},
-{
-  "id": "dtsoneva",
+  "id": "dtotseva",
   "name": "Диляна Тоцева",
-  "img": "dist/images/lectors/dtsoneva.png",
+  "img": "dist/images/lectors/dtotseva.png",
   "company": {"name": "Mentor Mate", "url": "http://mentormate.bg/"},
 
   "resume": "Диляна е QA Lead в <a href=\"http://mentormate.bg/\" target=\"_blank\">МенторМейт</a>, винаги стремяща се да прилага най-добрите практики в тестването. В последните години Диляна е фокусирана в осигуряването на качеството на мобилни приложения. Във всеки един проект тя търси най-добрата тестова стратегия, която да приложи, за да постигне максимално качество. Личната ѝ цел е изграждането на мотивиран екип, с опит и знания да откриват и най-скритите дефекти."
@@ -31,14 +23,6 @@
   "resume": "Георги е Senior Automation QA с повече от 6 години опит в областта на QA. Експерт в автоматичното и ръчно тестване той е разработил стратегии за тестване на множество проекти. Георги обича да споделя знанията си и изразява това, чрез създаване на курсове и обучение за автоматично тестване."
 },
 {
-  "id": "tuzunov",
-  "name": "Цветан Узунов",
-  "img": "dist/images/lectors/tuzunov.jpg",
-  "company": {"name": "Olimex", "url": "https://www.olimex.com/"},
-
-  "resume": "Цветан Узунов е Hardware hacker, евангелист за Open Source Hardware, обича отворените технологии и софтуер, тежката музика и мотоциклетите с големи кубатури. Занимава се с хардуер и софтуер откакто се помни. Основава фирма <a href=\"https://www.olimex.com\" target=\"_blank\">Олимекс</a> преди 22 години и управлява този бизнес като хоби и за забавление, но въпреки това успява да реализира двуцифрен ръст на компанията всяка година."
-},
-{
   "id": "ngochev",
   "name": "Найден Гочев",
   "img": "dist/images/lectors/ngochev.jpg",
@@ -47,12 +31,20 @@
   "resume": "Найден Гочев е софтуерен архитект в <a href=\"http://nemesis.io\" target=\"_blank\">Nemesis Software</a> с над 10 години опит. Завършил е ФМИ на ПУ, работил в редица фирми като Isy Intellect, ProxiAD, Insight Technologies, NASD, Unic AG, Phamola и Telerik. Водил е различни лекции и трейнинги в редица академични структури като ПУ, Прагматик, Софтуерния университет, правил е фирмени обучения и е участвал в редица ИТ евенти. Към момента е член на <a href=\"http://jug.bg\" target=\"_blank\">Българската Java потребителска група</a> и участва в организацията на ежегодната конференция <a href=\"http://jprime.io\" target=\"_blank\">jPrime</a>"
 },
 {
+  "id": "sstavrev",
+  "name": "Стефан Ставрев",
+  "img": "dist/images/lectors/sstavrev.png",
+  "company": {"name": "TRI Soft", "url": "http://tri-soft.net/"},
+
+  "resume": "Собственик и управител на <a href=\"http://tri-soft.net/\" target=\"_blank\">TRI Soft</a>. С над 3 години опит в проектирането и разработването на интелигентни системи и игри, и трудов стаж в научната компания TNO - основен партньор на Холандското министерство на отбраната. Понастоящем Стефан се занимава с разработката на иновативни автономни системи, компютърно зрение, разпознаване на лица и разработване на игри и интерактивни архитектурни визуализации в реално време. Изкуствен интелект и модерните технологии за него са не просто академични дисциплини, а и начин на мислене. В свободното си време обича да преподава. Води избираеми курсове в Пловдивския университет \"Паисий Хилендарски\"."
+},
+{
   "id": "djekov",
   "name": "Деян Жеков",
   "img": "dist/images/lectors/djekov.png",
   "company": {"name": "EVORI", "url": "https://www.23snaps.com"},
 
-  "resume": "Деян Жеков е iOS Developer в EVORI - БГ фирмата, стояща зад успешните проекти Styloko, 23snaps и Printastic. В момента работи по мобилното приложение WantList by Styloko, наречено от пресата на острова “Tinder for Shopping”. Работил е в ProxiAd, но преди 3 години се мести във Варна и се отдава изцяло на iOS development-а. Неговият стремеж е да създава максимално въздействие върху потребителите чрез мобилните приложения. В свободното си време обича да спортува и да слуша хубава музика."
+  "resume": "Деян Жеков е iOS Developer в EVORI - БГ фирмата, стояща зад успешните проекти <a href=\"http://www.styloko.com/\" target=\"_blank\">Styloko</a>, <a href=\"https://www.23snaps.com/\" target=\"_blank\">23snaps</a> и <a href=\"https://getprintastic.com/\" target=\"_blank\">Printastic</a>. В момента работи по мобилното приложение <a href=\"https://itunes.apple.com/bg/app/styloko/id489554189?mt=8/\" target=\"_blank\">WantList by Styloko</a>, наречено от пресата на острова “Tinder for Shopping”. Работил е в ProxiAd, но преди 3 години се мести във Варна и се отдава изцяло на iOS development-а. Неговият стремеж е да създава максимално въздействие върху потребителите чрез мобилните приложения. В свободното си време обича да спортува и да слуша хубава музика."
 },
 {
   "id": "rivanov",
@@ -61,6 +53,20 @@
   "company": {"name": "TaxiMe", "url": "http://taxime.to/"},
 
   "resume": "Редовен обитател и касиер на Пловдивския хакерспейс <a href=\"http://hackafe.org\" target=\"_blank\">Hackafe</a>. Редовната ми работа е backend developer/devops във <a href=\"http://taxime.to/\" target=\"_blank\">TaxiMe</a>, където имам предимството и удоволствието да се сблъскам със docker, езика за програмиране GO и други интересни технологии. Напоследък през свободното време  ръчкам и ремонтирам стар хардуер който се намира във лаба. Харесвам общността която се сформира покрай лаба и правя всичко възможно заедно със другите обитатели на лаба, да направим мястото и общостта още по-интересна и по-голяма. Също съм и почетен клиент на магазина за бира който се намира до лаба :)."
-}
-]
+},
+{
+  "id": "tuzunov",
+  "name": "Цветан Узунов",
+  "img": "dist/images/lectors/tuzunov.jpg",
+  "company": {"name": "Olimex", "url": "https://www.olimex.com/"},
 
+  "resume": "Цветан Узунов е Hardware hacker, евангелист за Open Source Hardware, обича отворените технологии и софтуер, тежката музика и мотоциклетите с големи кубатури. Занимава се с хардуер и софтуер откакто се помни. Основава фирма <a href=\"https://www.olimex.com\" target=\"_blank\">Олимекс</a> преди 22 години и управлява този бизнес като хоби и за забавление, но въпреки това успява да реализира двуцифрен ръст на компанията всяка година."
+},
+{
+  "id": "iradulovski",
+  "name": "Ivo Radulovski",
+  "img": "dist/images/lectors/iradulovski.jpg",
+  "company": {"name": "Segments Accelerator", "url": "http://www.segments-accelerator.com/"},
+
+  "resume": "Ivo Radulovski is an IT Management Consultant, Strategic Innovation Designer, Entrepreneur, Lecturer and Mentor. As entrepreneur he founded Segments Digital, Propeople Austria, Belgium and Germany (now FFW Agency), the leading comparison platforms Versichern24, Eversport and other start ups with several successful exits. As CEO of Segments Digital he leads development of enterprise IT solutions for some of the world's best companies. He was responsible for some major conferences & events in Europe dealing with executives from more than 30 countries. In 2010 he started Drupal Bulgaria and led the organization of developer oriented events all over Bulgaria. Ivo was a speaker at the Global Webit Congress and major conferences in Berlin, Chicago, Copenhagen, Istanbul, London, Milano, Munich, Prague, Vienna and other cities. His speeches cover topics from Entrepreneurship, Business Development and Digital Strategies to Innovation in Government. His current focus is on \"Innovation, Enterprise IT Strategy and Organizational Changes\"."
+}]
